@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Cuidados — Peças com Algodão | Anselmi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+  :root {
+    --brand-blue: #1B4F72; --brand-blue-light: #2980B9;
+    --accent-gold: #C9A84C; --accent-gold-light: #F5E6B8;
+    --diverge-red: #C0392B; --diverge-red-bg: #FADBD8;
+    --converge-green: #1E8449; --converge-green-bg: #D5F5E3;
+    --neutral-bg: #FAFAFA; --card-bg: #FFFFFF;
+    --text-primary: #2C3E50; --text-secondary: #5D6D7E;
+    --text-light: #95A5A6; --border-light: #E8E8E8; --section-bg: #F8F9FA;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text-primary); background: var(--neutral-bg); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .tab-nav { position: sticky; top: 0; z-index: 100; background: var(--brand-blue); display: flex; justify-content: center; box-shadow: 0 2px 20px rgba(0,0,0,0.15); }
+  .tab-btn { background: none; border: none; color: rgba(255,255,255,0.65); font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 500; padding: 16px 32px; cursor: pointer; position: relative; letter-spacing: 0.03em; transition: all 0.3s; }
+  .tab-btn:hover { color: rgba(255,255,255,0.9); }
+  .tab-btn.active { color: #fff; }
+  .tab-btn.active::after { content: ''; position: absolute; bottom: 0; left: 20%; right: 20%; height: 3px; background: var(--accent-gold); border-radius: 3px 3px 0 0; }
+  .tab-content { display: none; } .tab-content.active { display: block; }
+  .hero { background: linear-gradient(135deg, var(--brand-blue) 0%, #154360 100%); color: #fff; text-align: center; padding: 80px 24px 60px; }
+  .hero-badge { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold); border: 1px solid var(--accent-gold); padding: 4px 16px; border-radius: 20px; margin-bottom: 24px; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700; margin-bottom: 12px; }
+  .hero p { font-size: 1rem; color: rgba(255,255,255,0.7); font-weight: 300; max-width: 560px; margin: 0 auto; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 56px 0; } .section + .section { border-top: 1px solid var(--border-light); }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--brand-blue); margin-bottom: 8px; }
+  .section-subtitle { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 640px; }
+  .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 640px) { .care-grid { grid-template-columns: 1fr; } }
+  .care-card { background: var(--card-bg); border-radius: 12px; padding: 24px; border: 1px solid var(--border-light); transition: box-shadow 0.2s; }
+  .care-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .care-card-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; font-size: 1.3rem; }
+  .care-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; }
+  .care-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+  .care-card .highlight { display: inline-block; background: var(--accent-gold-light); color: #7D6608; font-weight: 600; font-size: 0.8rem; padding: 2px 8px; border-radius: 4px; margin-top: 8px; }
+  .icon-blue { background: #EBF5FB; } .icon-orange { background: #FDF2E9; } .icon-green { background: #E8F8F0; } .icon-purple { background: #F4ECF7; } .icon-red { background: #FDEDEC; } .icon-gold { background: var(--accent-gold-light); }
+  .tips-list { list-style: none; padding: 0; }
+  .tips-list li { padding: 14px 16px 14px 48px; position: relative; border-bottom: 1px solid var(--border-light); font-size: 0.88rem; color: var(--text-secondary); }
+  .tips-list li::before { content: attr(data-icon); position: absolute; left: 14px; top: 14px; font-size: 1rem; }
+  .tips-list li:last-child { border-bottom: none; } .tips-list li strong { color: var(--text-primary); }
+  .blend-note { background: linear-gradient(135deg, #EBF5FB 0%, #F4ECF7 100%); border-radius: 12px; padding: 28px 32px; margin-top: 32px; border-left: 4px solid var(--brand-blue-light); }
+  .blend-note h3 { font-size: 0.95rem; font-weight: 600; color: var(--brand-blue); margin-bottom: 8px; }
+  .blend-note p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+  .data-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 0.82rem; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 8px rgba(0,0,0,0.04); }
+  .data-table thead th { background: var(--brand-blue); color: #fff; font-weight: 600; padding: 12px 14px; text-align: left; font-size: 0.78rem; letter-spacing: 0.03em; text-transform: uppercase; }
+  .data-table tbody td { padding: 11px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  .data-table tbody tr:nth-child(even) { background: #F8FAFB; } .data-table tbody tr:hover { background: #EDF2F7; }
+  .data-table .aspect { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+  .cell-diverge { background: var(--diverge-red-bg) !important; color: var(--diverge-red); font-weight: 500; }
+  .cell-converge { background: var(--converge-green-bg) !important; color: var(--converge-green); font-weight: 500; }
+  .badge-diverge, .badge-converge { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 8px; border-radius: 4px; margin-left: 4px; vertical-align: middle; }
+  .badge-diverge { background: var(--diverge-red-bg); color: var(--diverge-red); }
+  .badge-converge { background: var(--converge-green-bg); color: var(--converge-green); }
+  .stat-row { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .stat-box { flex: 1; min-width: 140px; background: var(--card-bg); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid var(--border-light); }
+  .stat-number { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--brand-blue); line-height: 1; }
+  .stat-label { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+  .finding { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+  .finding:last-child { border-bottom: none; }
+  .finding-arrow { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-gold-light); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; margin-top: 2px; }
+  .finding p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; } .finding p strong { color: var(--text-primary); }
+  .internal-card { background: var(--card-bg); border-radius: 10px; padding: 24px; border: 1px solid var(--border-light); margin-bottom: 16px; }
+  .internal-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--brand-blue); margin-bottom: 10px; }
+  .internal-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
+  .internal-card .example { background: #F8F9FA; border-radius: 6px; padding: 10px 14px; margin-top: 10px; font-size: 0.8rem; color: var(--text-secondary); border-left: 3px solid var(--diverge-red); }
+  .reco-box { background: linear-gradient(135deg, #1B4F72 0%, #154360 100%); color: #fff; border-radius: 12px; padding: 32px; margin-top: 32px; }
+  .reco-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 12px; color: var(--accent-gold); }
+  .reco-box p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.85); }
+  .legend { display: flex; gap: 20px; margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .legend-dot.red { background: var(--diverge-red-bg); border: 1px solid var(--diverge-red); }
+  .legend-dot.green { background: var(--converge-green-bg); border: 1px solid var(--converge-green); }
+  .footer { text-align: center; padding: 40px 24px; font-size: 0.75rem; color: var(--text-light); border-top: 1px solid var(--border-light); }
+  .footer strong { color: var(--text-secondary); }
+</style>
+</head>
+<body><nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('cliente')">Guia para a Cliente</button>
+  <button class="tab-btn" onclick="switchTab('interno')">Análise Interna</button>
+</nav>
+<div id="tab-cliente" class="tab-content active">
+  <div class="hero">
+    <div class="hero-badge">Algodão Natural</div>
+    <h1>Como Cuidar das Suas Peças de Algodão</h1>
+    <p>Guia completo para manter suas peças de tricô e malha em algodão bonitas por muito mais tempo</p>
+  </div>
+  <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a forma, a cor e a maciez das suas peças em algodão.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-blue">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p>Lave na <strong>máquina a 30°C no ciclo delicado</strong>, sempre do avesso. Para peças mais estruturadas ou com detalhes artesanais, prefira lavar à mão em água fria.</p>
+          <span class="highlight">30°C — ciclo delicado</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-orange">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe do avesso em <strong>temperatura baixa a média (110–150°C)</strong>. Tricôs com pontos mais abertos ficam melhor com ferro a 110°C. Malhas lisas e firmes suportam até 150°C.</p>
+          <span class="highlight">110–150°C — do avesso</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong> sobre uma toalha seca. Para peças mais leves e firmes, o varal à sombra também funciona. Nunca use secadora — o calor encolhe e deforma o algodão.</p>
+          <span class="highlight">Horizontal — sem secadora</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>detergente suave e neutro</strong>, de preferência líquido. Evite alvejante com cloro — se necessário, use apenas alvejante sem cloro (à base de oxigênio).</p>
+          <span class="highlight">Neutro e líquido</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Não torça</strong> a peça — pressione suavemente para retirar o excesso de água. Não use secadora. Evite atrito excessivo durante a lavagem para preservar a textura do ponto.</p>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-gold">&#128141;</div>
+          <h3>Armazenamento</h3>
+          <p><strong>Guarde dobrada</strong>, nunca em cabide (que deforma os ombros). Lavar antes de guardar por longos períodos. Mantenha em local arejado e seco.</p>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128090;"><strong>Lave do avesso</strong> — protege a superfície visível da peça contra atrito com outras roupas.</li>
+          <li data-icon="&#127752;"><strong>Separe por cor</strong> — o algodão pode soltar tinta, principalmente nas primeiras lavagens.</li>
+          <li data-icon="&#129520;"><strong>Use saco de proteção</strong> — para peças delicadas na máquina, o saquinho de lavagem evita que se deformem ou enganchem.</li>
+          <li data-icon="&#128168;"><strong>Areje entre os usos</strong> — nem sempre é preciso lavar. Arejar por algumas horas pode ser suficiente entre usos.</li>
+          <li data-icon="&#127782;&#65039;"><strong>Seque à sombra</strong> — sol direto pode amarelar peças claras e desbotar peças escuras.</li>
+          <li data-icon="&#9993;&#65039;"><strong>Pilling é natural</strong> — em peças 100% algodão, pequenas bolinhas podem surgir nas áreas de atrito. Remova com um tiragelo ou pente de malha.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Peças Mistas (Blends)</div>
+      <div class="section-subtitle">Quando o algodão está misturado com outras fibras, o cuidado segue a fibra mais delicada.</div>
+      <div class="blend-note"><h3>Algodão + Lã ou Caxemira</h3><p>Siga as instruções da lã/caxemira: lave à mão em água fria, seque na horizontal. O ferro deve ser no máximo 110°C. Nunca use secadora.</p></div>
+      <div class="blend-note" style="border-left-color: var(--accent-gold); margin-top: 12px;"><h3>Algodão + Viscose ou Lyocell</h3><p>Siga as instruções da viscose: lave à mão ou máquina 30°C ciclo delicado. A viscose é muito frágil quando molhada — não torça e seque na horizontal.</p></div>
+      <div class="blend-note" style="border-left-color: #8E44AD; margin-top: 12px;"><h3>Algodão + Poliéster ou Acrílico</h3><p>O algodão predomina no cuidado, mas atenção ao ferro: mantenha em 110°C para não danificar as fibras sintéticas, que são sensíveis ao calor.</p></div>
+      <div class="blend-note" style="border-left-color: var(--converge-green); margin-top: 12px;"><h3>Algodão + Linho</h3><p>Ambas são fibras vegetais resistentes. Lave a 30°C, seque na horizontal. O ferro pode ser até 150°C. O amassado natural é parte do charme do linho.</p></div>
+    </div>
+  </div>
+</div><div id="tab-interno" class="tab-content">
+  <div class="hero" style="padding: 56px 24px 48px;">
+    <div class="hero-badge">Benchmark Interno</div>
+    <h1>Divergências — Algodão</h1>
+    <p>Análise comparativa das instruções de lavagem para peças com algodão entre 5 marcas internacionais</p>
+  </div>
+  <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">124</div><div class="stat-label">Produtos analisados</div></div>
+        <div class="stat-box"><div class="stat-number">5</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">3</div><div class="stat-label">Divergências críticas</div></div>
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Inconsistências internas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências — Algodão</div>
+      <div class="section-subtitle">Comparação das instruções de cuidado entre marcas para peças contendo algodão (excluídas as de lavagem a seco exclusiva).</div>
+      <div class="legend"><span><span class="legend-dot red"></span> Divergência significativa</span><span><span class="legend-dot green"></span> Convergência</span></div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>Massimo Dutti</th><th>Zara</th><th>COS</th><th>Arket</th><th>H&amp;M</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td class="cell-diverge">Mão ou Máq. 30°C delicado</td><td>Máquina 30°C centrifug. curta</td><td class="cell-diverge">Máquina 40°C (quando indica)</td><td class="cell-diverge">Mão, Máq. 30°C ou 40°C</td><td class="cell-diverge">Máquina 40°C (maioria)</td></tr>
+          <tr><td class="aspect">Ferro</td><td class="cell-diverge">110°C (73%) ou 150°C (2%)</td><td class="cell-diverge">110°C (92%)</td><td class="cell-converge">Médio ~150°C (75%)</td><td class="cell-converge">Médio ~150°C (94%)</td><td class="cell-diverge">Médio (55%) / Baixo (45%)</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-converge">Sim (tetracloroetileno)</td><td class="cell-diverge">PROIBIDO</td><td class="cell-converge">Sim</td><td class="cell-converge">Sim (maioria)</td><td>Não informado</td></tr>
+          <tr><td class="aspect">Secagem</td><td>Plano, sem secadora (83%)</td><td>Sem secadora (77%)</td><td>Varal / Estendal (90%)</td><td>Plano (75%) / Varal (25%)</td><td>Varal / Estendal (82%)</td></tr>
+          <tr><td class="aspect">Branqueador</td><td class="cell-converge">Proibido</td><td class="cell-converge">Proibido</td><td class="cell-converge">Só não-clorado</td><td class="cell-converge">Só não-clorado</td><td class="cell-converge">Só não-clorado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Temperatura de lavagem:</strong> O grupo Inditex (Zara + Massimo Dutti) é mais conservador com 30°C, enquanto o grupo H&amp;M (COS, Arket, H&amp;M) permite 40°C para algodão. A abordagem de 30°C é mais segura para preservar a forma em peças de tricô.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Ferro — maior ponto de divergência:</strong> Zara e Massimo Dutti indicam 110°C (temperatura baixa) para algodão, enquanto COS e Arket permitem ~150°C (média). Para algodão puro, 150°C é seguro, mas a Inditex prioriza cautela para peças de tricô com estrutura de ponto.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Dry clean — Zara proíbe:</strong> A Zara é a única marca que proíbe dry clean para algodão. Todas as outras permitem ou recomendam. Curiosamente, a Massimo Dutti (mesmo grupo Inditex) aceita e recomenda dry clean com tetracloroetileno.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS raramente informa lavagem:</strong> 85% dos produtos COS com algodão não trazem instrução explícita de lavagem na ficha — indicam apenas "dry clean" e "line dry". Isso não significa que não possam ser lavados, mas a marca omite a informação.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Secagem plano vs. varal:</strong> Massimo Dutti e Arket preferem "secar plano" (melhor para preservar a forma do tricô), enquanto COS e H&amp;M indicam "varal/estendal" (mais prático mas pode deformar peças pesadas).</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Divergências Internas</div>
+      <div class="section-subtitle">Inconsistências encontradas dentro da mesma marca para peças com composição idêntica.</div>
+      <div class="internal-card"><h4>Massimo Dutti — Algodão 100% <span class="badge-diverge">Divergente</span></h4><p>A marca varia entre ferro a 110°C e 150°C para algodão puro, e entre lavagem à mão e máquina a 30°C, sem um padrão claro que justifique a diferença.</p><div class="example"><strong>Striped Cotton Knit Sweater:</strong> lavagem à mão, ferro 110°C<br><strong>Cotton High Neck Knit Cardigan:</strong> máquina 30°C, ferro 150°C<br>Mesma composição (Cotton 100%), instruções diferentes.</div></div>
+      <div class="internal-card"><h4>H&amp;M — Algodão em Blends <span class="badge-diverge">Divergente</span></h4><p>Para blends com algodão, a H&amp;M varia entre ferro baixo e médio sem correlação clara com a composição. Peças com Algodão 100% recebem ferro médio, mas peças com Algodão 55% também recebem ferro baixo.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="reco-box"><h3>Posicionamento Sugerido</h3><p>Adotar a abordagem conservadora da Inditex para lavagem (30°C) combinada com a transparência do grupo H&amp;M (instruções detalhadas e completas). Incluir informações que nenhuma marca oferece sistematicamente: proibição de amaciante para algodão mercerizado, recomendação de saco de lavagem para tricôs, e orientação de armazenamento dobrado. Para ferro, recomendar 110°C para tricôs e 150°C para malhas lisas — diferenciando por tipo de ponto, não só por fibra. Isso posiciona a Anselmi como a marca que mais entende e mais cuida do seu produto.</p></div>
+    </div>
+  </div>
+</div>
+<div class="footer"><strong>Anselmi</strong> — Guia de Cuidados para Peças com Algodão<br>Baseado na análise de 124 produtos de 5 marcas internacionais — Março 2026</div>
+<script>
+function switchTab(tab) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + tab).classList.add('active');
+  document.querySelector('[onclick="switchTab(\'' + tab + '\')"]').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
