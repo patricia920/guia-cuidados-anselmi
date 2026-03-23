@@ -3,6 +3,1219 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Cuidados por Fibra | Anselmi</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --anselmi-creme: #F7F1E5;
+    --anselmi-caramelo: #BB9972;
+    --anselmi-bordo: #5D2A2C;
+    --anselmi-preto: #000000;
+    --anselmi-branco: #FFFFFF;
+    --card-bg: #FFFFFF;
+    --text-primary: #2C3E50;
+    --text-secondary: #5D6D7E;
+    --text-light: #95A5A6;
+    --border-light: #E8E8E8;
+    --diverge-red: #C0392B;
+    --diverge-red-bg: #FADBD8;
+    --converge-green: #1E8449;
+    --converge-green-bg: #D5F5E3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-primary);
+    background: var(--anselmi-creme);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: var(--anselmi-preto);
+    text-align: center;
+    padding: 22px 24px;
+    position: sticky; top: 0; z-index: 200;
+  }
+  .site-header img { height: 20px; display: block; margin: 0 auto; }
+
+  /* FIBER NAV */
+  .fiber-nav {
+    position: sticky; top: 64px; z-index: 100;
+    background: var(--anselmi-bordo);
+    display: flex; justify-content: center;
+    overflow-x: auto; white-space: nowrap;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    box-shadow: 0 2px 20px rgba(93,42,44,0.2);
+  }
+  .fiber-nav::-webkit-scrollbar { display: none; }
+  .fiber-btn {
+    background: none; border: none;
+    color: rgba(255,255,255,0.55);
+    font-family: 'Inter', sans-serif; font-size: 0.78rem; font-weight: 500;
+    padding: 14px 20px; cursor: pointer; position: relative;
+    letter-spacing: 0.03em; transition: all 0.3s; white-space: nowrap;
+  }
+  .fiber-btn:hover { color: rgba(255,255,255,0.85); }
+  .fiber-btn.active { color: #fff; }
+  .fiber-btn.active::after {
+    content: ''; position: absolute; bottom: 0; left: 20%; right: 20%;
+    height: 3px; background: var(--anselmi-caramelo); border-radius: 3px 3px 0 0;
+  }
+
+  /* SUB-TAB NAV (Guia / Análise) */
+  .sub-nav {
+    display: flex; justify-content: center; gap: 0;
+    background: rgba(93,42,44,0.08);
+    border-bottom: 1px solid rgba(187,153,114,0.25);
+  }
+  .sub-btn {
+    background: none; border: none;
+    color: var(--anselmi-caramelo);
+    font-family: 'Inter', sans-serif; font-size: 0.82rem; font-weight: 500;
+    padding: 14px 28px; cursor: pointer; position: relative;
+    letter-spacing: 0.04em; transition: all 0.3s;
+  }
+  .sub-btn:hover { color: var(--anselmi-bordo); }
+  .sub-btn.active { color: var(--anselmi-bordo); font-weight: 600; }
+  .sub-btn.active::after {
+    content: ''; position: absolute; bottom: 0; left: 15%; right: 15%;
+    height: 2px; background: var(--anselmi-bordo);
+  }
+  .sub-content { display: none; }
+  .sub-content.active { display: block; }
+
+  .fiber-content { display: none; }
+  .fiber-content.active { display: block; }
+
+  /* HERO */
+  .hero {
+    background: linear-gradient(135deg, var(--anselmi-bordo) 0%, #3D1A1C 100%);
+    color: #fff; text-align: center; padding: 80px 24px 60px;
+  }
+  .hero-badge {
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--anselmi-caramelo); border: 1px solid var(--anselmi-caramelo);
+    padding: 4px 16px; border-radius: 20px; margin-bottom: 24px;
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 700;
+    margin-bottom: 12px; letter-spacing: -0.01em;
+  }
+  .hero p { font-size: 1rem; color: rgba(255,255,255,0.65); font-weight: 300; max-width: 560px; margin: 0 auto; }
+  .hero.internal { padding: 56px 24px 48px; }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: 56px 0; }
+  .section + .section { border-top: 1px solid rgba(187,153,114,0.2); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700;
+    color: var(--anselmi-bordo); margin-bottom: 8px;
+  }
+  .section-subtitle {
+    font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 32px; max-width: 640px;
+  }
+
+  /* CARE CARDS */
+  .care-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (max-width: 640px) { .care-grid { grid-template-columns: 1fr; } }
+  .care-card {
+    background: var(--card-bg); border-radius: 12px; padding: 24px;
+    border: 1px solid var(--border-light); transition: box-shadow 0.2s;
+  }
+  .care-card:hover { box-shadow: 0 4px 16px rgba(93,42,44,0.08); }
+  .care-card-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 14px; font-size: 1.3rem;
+  }
+  .care-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+  .care-card p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+  .care-card .highlight {
+    display: inline-block; background: rgba(187,153,114,0.15);
+    color: var(--anselmi-bordo); font-weight: 600; font-size: 0.8rem;
+    padding: 2px 8px; border-radius: 4px; margin-top: 8px;
+  }
+  .icon-creme { background: #FAF5EB; }
+  .icon-warm { background: #FDF2E9; }
+  .icon-green { background: #E8F8F0; }
+  .icon-purple { background: #F4ECF7; }
+  .icon-red { background: #FDEDEC; }
+  .icon-gold { background: rgba(187,153,114,0.12); }
+
+  /* TIPS */
+  .tips-list { list-style: none; padding: 0; }
+  .tips-list li {
+    padding: 14px 16px 14px 48px; position: relative;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.88rem; color: var(--text-secondary);
+  }
+  .tips-list li::before { content: attr(data-icon); position: absolute; left: 14px; top: 14px; font-size: 1rem; }
+  .tips-list li:last-child { border-bottom: none; }
+  .tips-list li strong { color: var(--text-primary); }
+
+  /* BLEND NOTE */
+  .blend-note {
+    background: linear-gradient(135deg, #FAF5EB 0%, #F4ECF7 100%);
+    border-radius: 12px; padding: 28px 32px; margin-top: 16px;
+    border-left: 4px solid var(--anselmi-caramelo);
+  }
+  .blend-note h3 { font-size: 0.95rem; font-weight: 600; color: var(--anselmi-bordo); margin-bottom: 8px; }
+  .blend-note p { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.65; }
+
+  /* INFO BOX */
+  .info-box {
+    background: linear-gradient(135deg, var(--anselmi-bordo) 0%, #3D1A1C 100%);
+    color: #fff; border-radius: 12px; padding: 32px; margin-top: 32px;
+  }
+  .info-box h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    margin-bottom: 12px; color: var(--anselmi-caramelo);
+  }
+  .info-box p { font-size: 0.88rem; line-height: 1.7; color: rgba(255,255,255,0.85); }
+
+  /* STAT ROW */
+  .stat-row { display: flex; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .stat-box {
+    flex: 1; min-width: 140px; background: var(--card-bg); border-radius: 10px;
+    padding: 20px; text-align: center; border: 1px solid var(--border-light);
+  }
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700;
+    color: var(--anselmi-bordo); line-height: 1;
+  }
+  .stat-label { font-size: 0.75rem; color: var(--text-light); margin-top: 4px; letter-spacing: 0.04em; text-transform: uppercase; }
+
+  /* DATA TABLE */
+  .data-table {
+    width: 100%; border-collapse: collapse; margin-bottom: 24px;
+    font-size: 0.82rem; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+  }
+  .data-table thead th {
+    background: var(--anselmi-bordo); color: #fff; font-weight: 600;
+    padding: 12px 14px; text-align: left; font-size: 0.78rem;
+    letter-spacing: 0.03em; text-transform: uppercase;
+  }
+  .data-table tbody td {
+    padding: 11px 14px; border-bottom: 1px solid var(--border-light); vertical-align: top;
+    background: var(--card-bg);
+  }
+  .data-table tbody tr:nth-child(even) td { background: #F8FAFB; }
+  .data-table tbody tr:hover td { background: #EDF2F7; }
+  .data-table .aspect { font-weight: 600; color: var(--text-primary); white-space: nowrap; }
+  .cell-diverge { background: var(--diverge-red-bg) !important; color: var(--diverge-red); font-weight: 500; }
+  .cell-converge { background: var(--converge-green-bg) !important; color: var(--converge-green); font-weight: 500; }
+
+  .badge-diverge, .badge-converge {
+    display: inline-block; font-size: 0.7rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 4px; margin-left: 4px; vertical-align: middle;
+  }
+  .badge-diverge { background: var(--diverge-red-bg); color: var(--diverge-red); }
+  .badge-converge { background: var(--converge-green-bg); color: var(--converge-green); }
+
+  /* LEGEND */
+  .legend { display: flex; gap: 20px; margin-bottom: 20px; font-size: 0.78rem; color: var(--text-secondary); }
+  .legend span { display: flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+  .legend-dot.red { background: var(--diverge-red-bg); border: 1px solid var(--diverge-red); }
+  .legend-dot.green { background: var(--converge-green-bg); border: 1px solid var(--converge-green); }
+
+  /* FINDINGS */
+  .finding { display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border-light); }
+  .finding:last-child { border-bottom: none; }
+  .finding-arrow {
+    flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+    background: rgba(187,153,114,0.15); color: var(--anselmi-caramelo);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 0.85rem; margin-top: 2px;
+  }
+  .finding p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.65; }
+  .finding p strong { color: var(--text-primary); }
+
+  /* INTERNAL CARD */
+  .internal-card {
+    background: var(--card-bg); border-radius: 10px; padding: 24px;
+    border: 1px solid var(--border-light); margin-bottom: 16px;
+  }
+  .internal-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--anselmi-bordo); margin-bottom: 10px; }
+  .internal-card p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.6; }
+  .internal-card .example {
+    background: #F8F9FA; border-radius: 6px; padding: 10px 14px;
+    margin-top: 10px; font-size: 0.8rem; color: var(--text-secondary);
+    border-left: 3px solid var(--diverge-red);
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center; padding: 40px 24px;
+    font-size: 0.75rem; color: var(--text-light);
+    border-top: 1px solid rgba(187,153,114,0.2);
+  }
+  .footer img { height: 16px; margin-bottom: 10px; opacity: 0.6; }
+  .footer strong { color: var(--text-secondary); }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2rem; }
+    .section-title { font-size: 1.4rem; }
+    .fiber-btn { padding: 12px 14px; font-size: 0.72rem; }
+    .data-table { font-size: 0.72rem; }
+    .stat-row { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <img src="data:image/png;base64,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" alt="ANSELMI">
+</header>
+
+<nav class="fiber-nav">
+  <button class="fiber-btn active" onclick="switchFiber('algodao100')">100% Algodão</button>
+  <button class="fiber-btn" onclick="switchFiber('algodaoPoliamida')">Algodão + Poliamida</button>
+  <button class="fiber-btn" onclick="switchFiber('algodaoElastano')">Algodão + Elastano</button>
+  <button class="fiber-btn" onclick="switchFiber('merino')">Lã Merino</button>
+  <button class="fiber-btn" onclick="switchFiber('merinoElastano')">Merino + Elastano</button>
+  <button class="fiber-btn" onclick="switchFiber('merinoSuperwash')">Merino Superwash</button>
+  <button class="fiber-btn" onclick="switchFiber('cashmere')">Cashmere</button>
+  <button class="fiber-btn" onclick="switchFiber('poliamida100')">100% Poliamida</button>
+</nav>
+
+
+<!-- 100% ALGODÃO -->
+<div id="fiber-algodao100" class="fiber-content active">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('algodao100','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('algodao100','interno')">Análise Interna</button>
+  </div>
+
+  <div id="algodao100-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Fibra Natural</div>
+      <h1>100% Algodão</h1>
+      <p>Fibra vegetal respirável e versátil. Resistente, mas pede cuidados para manter a forma e a cor</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p>Lave na <strong>máquina a 30°C, ciclo delicado</strong>, sempre do avesso. Para tricôs com pontos abertos, prefira lavagem à mão em água fria.</p>
+          <span class="highlight">30°C — ciclo delicado</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe do avesso em <strong>temperatura baixa a média (110–150°C)</strong>. Tricôs com pontos abertos: 110°C. Malhas lisas e firmes: até 150°C.</p>
+          <span class="highlight">110–150°C — do avesso</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong> sobre uma toalha seca, à sombra. Nunca use secadora — o calor encolhe e deforma o algodão.</p>
+          <span class="highlight">Horizontal — sem secadora</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>detergente suave e neutro</strong>, de preferência líquido. Evite alvejante com cloro — se necessário, use apenas alvejante à base de oxigênio.</p>
+          <span class="highlight">Neutro e líquido</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Não torça</strong> a peça — pressione suavemente para retirar o excesso de água. Evite atrito excessivo durante a lavagem.</p>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-gold">&#128141;</div>
+          <h3>Armazenamento</h3>
+          <p><strong>Guarde dobrada</strong>, nunca em cabide (deforma os ombros). Lavar antes de guardar por longos períodos. Local arejado e seco.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128090;"><strong>Lave do avesso</strong> — protege a superfície visível da peça contra atrito com outras roupas.</li>
+          <li data-icon="&#127752;"><strong>Separe por cor</strong> — o algodão pode soltar tinta, principalmente nas primeiras lavagens.</li>
+          <li data-icon="&#129520;"><strong>Use saco de proteção</strong> — para peças delicadas na máquina, o saquinho evita deformação.</li>
+          <li data-icon="&#128168;"><strong>Areje entre os usos</strong> — nem sempre é preciso lavar. Arejar por algumas horas pode ser suficiente.</li>
+          <li data-icon="&#127782;&#65039;"><strong>Seque à sombra</strong> — sol direto amarela peças claras e desbota peças escuras.</li>
+          <li data-icon="&#9993;&#65039;"><strong>Pilling é natural</strong> — em peças 100% algodão, pequenas bolinhas surgem em áreas de atrito. Remova com tiragelo ou pente de malha.</li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <div id="algodao100-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — 100% Algodão</h1>
+      <p>Análise comparativa de 60 produtos em 4 marcas internacionais</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">60</div><div class="stat-label">Produtos analisados</div></div>
+        <div class="stat-box"><div class="stat-number">4</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">3</div><div class="stat-label">Divergências críticas</div></div>
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Inconsistências internas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências</div>
+      <div class="section-subtitle">Comparação entre marcas para peças 100% algodão.</div>
+      <div class="legend">
+        <span><span class="legend-dot red"></span> Divergência significativa</span>
+        <span><span class="legend-dot green"></span> Convergência</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>Massimo Dutti</th><th>Zara</th><th>COS</th><th>Arket</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td>Não informa temp. (wash inside out)</td><td>Máquina 30°C centrifug. curta</td><td class="cell-diverge">Máquina 40°C (quando indica)</td><td class="cell-diverge">30°C–40°C ciclo delicado</td></tr>
+          <tr><td class="aspect">Ferro</td><td>Não informa temp. (iron inside out)</td><td class="cell-diverge">110°C (100%)</td><td class="cell-converge">Médio ~150°C</td><td class="cell-converge">Médio ~150°C</td></tr>
+          <tr><td class="aspect">Secagem</td><td class="cell-converge">Plano, sem secadora</td><td>Sem secadora</td><td>Line dry / Varal</td><td class="cell-converge">Plano (Dry flat)</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-converge">Sim (tetracloroetileno)</td><td class="cell-diverge">PROIBIDO</td><td class="cell-converge">Sim</td><td class="cell-converge">Sim (maioria)</td></tr>
+          <tr><td class="aspect">Branqueador</td><td class="cell-diverge">Proibido (do not bleach)</td><td class="cell-diverge">Proibido</td><td class="cell-converge">Só não-clorado</td><td class="cell-converge">Só não-clorado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Temperatura de lavagem:</strong> Zara é mais conservadora (30°C). COS e Arket permitem 40°C para algodão puro. Massimo Dutti não explicita temperatura.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Ferro — maior divergência:</strong> Zara indica 110°C para algodão, enquanto COS e Arket permitem ~150°C (médio). Para algodão puro, 150°C é seguro — Zara prioriza cautela para estrutura de ponto.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Dry clean — Zara proíbe:</strong> A Zara é a única que proíbe dry clean para algodão. Massimo Dutti (mesmo grupo Inditex) aceita e recomenda com tetracloroetileno.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Massimo Dutti omite temperaturas:</strong> Indica "iron inside out" e "wash inside out" sem especificar graus — abordagem minimalista que pode confundir a cliente.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Arket é a mais completa:</strong> Inclui detergente suave, amaciante permitido, programa de lã na máquina e dry clean — maior nível de detalhe entre todas.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Adotar 30°C como padrão (abordagem conservadora). Diferenciar ferro por tipo de ponto: 110°C para tricôs, 150°C para malhas lisas. Incluir informações que nenhuma marca oferece: proibição de amaciante para algodão mercerizado, recomendação de saco de lavagem, orientação de armazenamento dobrado. Isso posiciona a Anselmi como a marca que mais entende e cuida do produto.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALGODÃO + POLIAMIDA -->
+<div id="fiber-algodaoPoliamida" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('algodaoPoliamida','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('algodaoPoliamida','interno')">Análise Interna</button>
+  </div>
+
+  <div id="algodaoPoliamida-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Blend</div>
+      <h1>Algodão + Poliamida</h1>
+      <p>A poliamida adiciona resistência e elasticidade ao algodão. O cuidado segue a fibra mais sensível ao calor</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p>Lave na <strong>máquina a 30°C, ciclo delicado</strong>, ou à mão em água fria. A poliamida é sensível a temperaturas altas — nunca ultrapasse 30°C.</p>
+          <span class="highlight">30°C — ciclo delicado</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe em <strong>temperatura baixa (110°C)</strong>, sempre do avesso. A poliamida derrete com calor excessivo.</p>
+          <span class="highlight">110°C máx. — do avesso</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong> sobre uma toalha seca. A poliamida seca rápido, mas o calor da secadora danifica.</p>
+          <span class="highlight">Horizontal — sem secadora</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>detergente neutro e líquido</strong>. Evite qualquer alvejante — a poliamida pode amarelar.</p>
+          <span class="highlight">Neutro — sem alvejante</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128090;"><strong>Lave do avesso</strong> — protege a superfície visível e reduz atrito entre fibras.</li>
+          <li data-icon="&#129520;"><strong>Use saco de proteção</strong> — peças com poliamida têm pontos finos que podem engatar.</li>
+          <li data-icon="&#128683;"><strong>Evite amaciante</strong> — a poliamida não precisa e o produto altera o toque.</li>
+          <li data-icon="&#128230;"><strong>Guarde dobrada</strong> — a poliamida é leve e estica em cabide.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="blend-note">
+        <h3>Por que este blend?</h3>
+        <p>A poliamida adiciona resistência à abrasão e maior elasticidade, sem alterar o toque natural do algodão. Peças neste blend mantêm melhor a forma e são mais resistentes ao uso diário.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="algodaoPoliamida-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Algodão + Poliamida</h1>
+      <p>Análise comparativa de 12 produtos em 3 marcas</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">12</div><div class="stat-label">Produtos analisados</div></div>
+        <div class="stat-box"><div class="stat-number">3</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Divergências críticas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências</div>
+      <div class="section-subtitle">Comparação entre marcas para peças algodão + poliamida.</div>
+      <div class="legend">
+        <span><span class="legend-dot red"></span> Divergência significativa</span>
+        <span><span class="legend-dot green"></span> Convergência</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>Massimo Dutti</th><th>Zara</th><th>H&M</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td class="cell-diverge">Mão 30°C (75%) / Máquina 30°C (25%)</td><td class="cell-converge">Máquina 30°C centrifug. curta</td><td class="cell-converge">Máquina 30°C</td></tr>
+          <tr><td class="aspect">Ferro</td><td class="cell-converge">110°C</td><td class="cell-converge">110°C</td><td class="cell-diverge">Baixo a médio (variável)</td></tr>
+          <tr><td class="aspect">Secagem</td><td class="cell-converge">Plano, sem secadora</td><td class="cell-diverge">Sem secadora (83%) / Secadora baixa (17%)</td><td>Estendal</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-converge">Sim (tetracloroetileno)</td><td class="cell-diverge">PROIBIDO</td><td>Não informado</td></tr>
+          <tr><td class="aspect">Branqueador</td><td class="cell-diverge">Proibido</td><td class="cell-diverge">Proibido</td><td class="cell-converge">Só não-clorado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Massimo Dutti prioriza lavagem à mão:</strong> 75% dos produtos algodão+poliamida indicam hand wash, enquanto Zara e H&M permitem máquina a 30°C.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Consenso no ferro a 110°C:</strong> Massimo Dutti e Zara convergem em 110°C. H&M varia entre baixo e médio sem padrão claro.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Zara permite secadora em blend:</strong> Para 17% dos produtos com poliamida, a Zara permite secadora em temperatura reduzida — divergência única.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Recomendar máquina 30°C ciclo delicado como padrão (mais prático que lavagem à mão). Ferro 110°C sem exceções (presença de poliamida). Proibir secadora. Destacar que a poliamida seca naturalmente rápido — secadora é desnecessária.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- ALGODÃO + ELASTANO -->
+<div id="fiber-algodaoElastano" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('algodaoElastano','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('algodaoElastano','interno')">Análise Interna</button>
+  </div>
+
+  <div id="algodaoElastano-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Blend</div>
+      <h1>Algodão + Elastano</h1>
+      <p>O elastano confere stretch e recuperação de forma. Peças confortáveis que acompanham o corpo</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p>Lave na <strong>máquina a 30°C, ciclo delicado</strong> com centrifugação curta. Não exceda 30°C — o calor deteriora o elastano.</p>
+          <span class="highlight">30°C — centrifugação curta</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe em <strong>temperatura baixa (110°C)</strong>, do avesso. O elastano é muito sensível — temperaturas altas destroem a elasticidade permanentemente.</p>
+          <span class="highlight">110°C máx.</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal ou varal à sombra</strong>. Nunca use secadora — o calor degrada o elastano e a peça perde elasticidade.</p>
+          <span class="highlight">Sem secadora — à sombra</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Não use alvejante nem amaciante</strong>. O cloro destrói o elastano e o amaciante reduz a capacidade de recuperação da fibra.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#9200;"><strong>Não deixe de molho</strong> — o elastano perde elasticidade quando fica imerso por muito tempo.</li>
+          <li data-icon="&#127744;"><strong>Centrifugação curta</strong> — a centrifugação longa estica as fibras de elastano irreversivelmente.</li>
+          <li data-icon="&#128230;"><strong>Guarde sem vincos</strong> — dobras apertadas podem marcar a fibra de elastano permanentemente.</li>
+          <li data-icon="&#127800;"><strong>Evite cremes e perfumes</strong> — produtos com álcool e óleos degradam o elastano.</li>
+          <li data-icon="&#128161;"><strong>A peça vai ceder um pouco</strong> — é normal. Após a lavagem, recupera a forma original.</li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <div id="algodaoElastano-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Algodão + Elastano</h1>
+      <p>Análise comparativa de 13 produtos em 4 marcas</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">13</div><div class="stat-label">Produtos analisados</div></div>
+        <div class="stat-box"><div class="stat-number">4</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Divergências críticas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências</div>
+      <div class="section-subtitle">Comparação entre marcas para peças algodão + elastano.</div>
+      <div class="legend">
+        <span><span class="legend-dot red"></span> Divergência significativa</span>
+        <span><span class="legend-dot green"></span> Convergência</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>Zara</th><th>COS</th><th>H&M</th><th>Arket</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td>30°C centrifug. curta (67%)</td><td>Não informa (dry clean)</td><td class="cell-diverge">40°C (100%)</td><td class="cell-diverge">40°C</td></tr>
+          <tr><td class="aspect">Ferro</td><td class="cell-diverge">110°C (67%) / 150°C (33%)</td><td class="cell-converge">Baixo (low iron)</td><td class="cell-diverge">Baixo (75%) / Médio (25%)</td><td class="cell-converge">Médio ~150°C</td></tr>
+          <tr><td class="aspect">Secagem</td><td class="cell-diverge">Sem secadora / Secadora baixa (variável)</td><td>Line dry</td><td>Estendal</td><td>Line dry</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-diverge">Proibido (67%) / Tetracloroetileno (33%)</td><td class="cell-converge">Sim</td><td>Não informado</td><td class="cell-converge">Sim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>H&M e Arket permitem 40°C:</strong> Mesmo com elastano, o grupo H&M permite 40°C. A Zara é mais conservadora com 30°C.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Zara internamente inconsistente no ferro:</strong> Peças com mesma composição (95% algodão, 5% elastano) recebem ferro 110°C ou 150°C sem padrão claro.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS não informa lavagem:</strong> Para blends com elastano, a COS indica apenas dry clean e line dry, omitindo temperatura de lavagem.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Padronizar 30°C com centrifugação curta (protege o elastano). Ferro máximo 110°C sem exceção — o elastano é o limitante. Proibir secadora e amaciante. Incluir dica sobre não deixar de molho — informação que nenhuma marca menciona.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- LÃ MERINO -->
+<div id="fiber-merino" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('merino','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('merino','interno')">Análise Interna</button>
+  </div>
+
+  <div id="merino-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Fibra Nobre</div>
+      <h1>Lã Merino</h1>
+      <p>Uma das fibras mais nobres do mundo, naturalmente termorreguladora e antibacteriana</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p><strong>Lave à mão em água fria (máx. 20°C)</strong>, imergindo delicadamente sem torcer. Se máquina, ciclo lã/hand wash a 20°C, centrifugação mínima.</p>
+          <span class="highlight">Mão — 20°C — sem torcer</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe em <strong>temperatura baixa (110°C)</strong>, do avesso, com pano úmido entre o ferro e a peça. A lã brilha e achata com calor direto.</p>
+          <span class="highlight">110°C — pano protetor</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Sempre na horizontal</strong>, sobre toalha seca, longe de calor e sol direto. A lã molhada é pesada e deforma facilmente.</p>
+          <span class="highlight">Horizontal — longe do calor</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>shampoo de lã ou detergente específico para delicados</strong>. Nunca detergente comum, amaciante ou qualquer alvejante.</p>
+          <span class="highlight">Shampoo de lã</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Nunca esfregue, torça ou use secadora</strong>. Evite mudanças bruscas de temperatura (causa feltro). Não pendure em cabide.</p>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-gold">&#128141;</div>
+          <h3>Armazenamento</h3>
+          <p><strong>Guarde dobrada e limpa</strong>, com sachê de lavanda ou cedro antitraça. Em sacos de algodão (não plástico) para períodos longos.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128168;"><strong>Areje entre usos</strong> — a lã merino é antibacteriana. Na maioria das vezes, basta arejar ao invés de lavar.</li>
+          <li data-icon="&#127777;&#65039;"><strong>Nunca mude a temperatura da água</strong> — enxague em temperatura diferente causa feltro irreversível.</li>
+          <li data-icon="&#127807;"><strong>Proteja contra traças</strong> — guarde sempre limpa, com lavanda ou cedro. Traças atacam lã suja.</li>
+          <li data-icon="&#129520;"><strong>Use pente de cashmere</strong> — bolinhas são normais nas primeiras semanas. Remova com pente delicado.</li>
+          <li data-icon="&#128260;"><strong>Descanse a peça</strong> — alterne uso e dê pelo menos 24h entre utilizações para a fibra recuperar.</li>
+          <li data-icon="&#128167;"><strong>Manchas pontuais</strong> — limpe com pano úmido e sabão neutro, sem esfregar. Não lave a peça inteira por uma mancha pequena.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info-box">
+        <h3>Lã merino é autolimpante</h3>
+        <p>A lã merino tem propriedades antibacterianas naturais e regulação de odor. Arejar a peça por algumas horas é suficiente na maioria dos usos — lave apenas quando realmente necessário.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="merino-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Lã Merino</h1>
+      <p>Análise de 44 produtos Wool 100% (com menção merino) em 3 marcas</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">44</div><div class="stat-label">Produtos (Wool 100%)</div></div>
+        <div class="stat-box"><div class="stat-number">3</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">3</div><div class="stat-label">Divergências críticas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências</div>
+      <div class="section-subtitle">Comparação de peças em lã merino (Wool 100%) entre COS, Arket e Massimo Dutti.</div>
+      <div class="legend">
+        <span><span class="legend-dot red"></span> Divergência significativa</span>
+        <span><span class="legend-dot green"></span> Convergência</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>COS</th><th>Arket</th><th>Massimo Dutti</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td class="cell-diverge">Máquina cold gentle (23%) / Só dry clean (62%) / Unwashable (15%)</td><td class="cell-converge">Mão cold + Máquina lã (100%)</td><td class="cell-converge">Mão 30°C</td></tr>
+          <tr><td class="aspect">Ferro</td><td class="cell-converge">Médio (77%) / Low (15%) / Do not iron (8%)</td><td class="cell-converge">Médio ~150°C</td><td>110°C</td></tr>
+          <tr><td class="aspect">Secagem</td><td>Line dry (69%) / Flat dry (31%)</td><td class="cell-converge">Flat dry (85%)</td><td class="cell-converge">Flat dry, sem secadora</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-diverge">Sim (77%) / Dry clean ONLY (23%)</td><td class="cell-diverge">Sim (92%) / Proibido (8%)</td><td class="cell-converge">Sim (tetracloroetileno)</td></tr>
+          <tr><td class="aspect">Detergente</td><td>Não informa</td><td class="cell-converge">Mild detergent (100%)</td><td>Não informa</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS marca muitos como "unwashable":</strong> 15% dos produtos merino COS são marcados como não laváveis. Única marca a fazer isso — abordagem ultra-conservadora.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Arket é a mais detalhada:</strong> Única marca que especifica "mild detergent" e permite tanto lavagem à mão quanto programa de lã na máquina.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS internamente inconsistente:</strong> Produtos 100% wool recebem instruções que vão de "machine wash cold" até "unwashable" — sem padrão claro.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Divergência no dry clean da Arket:</strong> 92% permitem, mas 8% proíbem dry clean — inconsistência interna para mesma composição.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Seguir o modelo Arket: informar lavagem à mão em água fria E programa de lã na máquina como alternativa. Especificar "detergente suave para lã". Incluir a informação que a lã merino é autolimpante — nenhuma marca comunica isso de forma educativa. Proibir secadora e amaciante, recomendar armazenamento antitraça.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- LÃ MERINO + ELASTANO -->
+<div id="fiber-merinoElastano" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('merinoElastano','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('merinoElastano','interno')">Análise Interna</button>
+  </div>
+
+  <div id="merinoElastano-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Blend Nobre</div>
+      <h1>Lã Merino + Elastano</h1>
+      <p>Stretch e recuperação de forma aliados à nobreza da merino. Ideal para peças ajustadas</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p><strong>Lave à mão em água fria (máx. 20°C)</strong>. Se máquina, ciclo lã/delicado a 20°C. O elastano é ainda mais sensível ao calor que a lã.</p>
+          <span class="highlight">Mão — 20°C — ciclo lã</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p><strong>Evite passar ferro</strong>. Se necessário, temperatura mínima (110°C) com pano protetor. Prefira vapor à distância.</p>
+          <span class="highlight">Evitar — máx. 110°C</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong>, moldando a peça para a forma original. Nunca secadora, nunca pendure.</p>
+          <span class="highlight">Horizontal — moldar forma</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Sem alvejante, sem amaciante, sem secadora, sem torcer</strong>. Não deixe de molho por mais de 5 min. Mudanças de temperatura = feltro + perda de elasticidade.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#9995;"><strong>Molde após lavar</strong> — enquanto úmida, estique suavemente para as dimensões originais.</li>
+          <li data-icon="&#9200;"><strong>Máximo 5 min de molho</strong> — o elastano relaxa se ficar imerso por mais tempo.</li>
+          <li data-icon="&#128683;"><strong>Não pendure de forma alguma</strong> — peso da lã molhada + elastano esticado não recupera.</li>
+          <li data-icon="&#128168;"><strong>Areje antes de guardar</strong> — a merino mantém suas propriedades antibacterianas no blend.</li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <div id="merinoElastano-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Merino + Elastano</h1>
+      <p>Composição específica da Anselmi — referência cruzada com dados de lã e elastano</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="internal-card">
+        <h4>Dados do Benchmark <span class="badge-diverge">Limitado</span></h4>
+        <p>O benchmark de 473 produtos não inclui peças explicitamente rotuladas como "merino + elastano". Esta composição é mais comum em marcas esportivas/performance e em tricôs técnicos da Anselmi.</p>
+        <p style="margin-top: 12px;">A recomendação de cuidados combina as melhores práticas de <strong>lã merino</strong> (lavagem à mão, água fria, flat dry) com as restrições do <strong>elastano</strong> (sem calor, sem molho prolongado, sem amaciante).</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Posicionar como "a fibra mais delicada do portfólio" — combinar os cuidados restritivos de ambas. Diferencial: orientar sobre moldagem pós-lavagem (nenhuma marca faz isso), tempo máximo de molho, e reforçar que a secagem na horizontal é obrigatória.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- LÃ MERINO SUPERWASH -->
+<div id="fiber-merinoSuperwash" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('merinoSuperwash','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('merinoSuperwash','interno')">Análise Interna</button>
+  </div>
+
+  <div id="merinoSuperwash-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Fibra Tratada</div>
+      <h1>Lã Merino Superwash</h1>
+      <p>Lã merino com tratamento antifeltro para lavagem em máquina. Praticidade sem perder a nobreza</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p><strong>Máquina a 30°C, ciclo delicado/lã</strong>, centrifugação baixa. A grande vantagem da superwash: resiste à máquina sem feltrar. Lave do avesso.</p>
+          <span class="highlight">Máquina 30°C — ciclo lã</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe em <strong>temperatura baixa (110°C)</strong>, do avesso, com pano protetor. O tratamento não altera a sensibilidade ao calor.</p>
+          <span class="highlight">110°C — pano protetor</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong>. Apesar de ser superwash, a secadora ainda causa encolhimento e deformação.</p>
+          <span class="highlight">Horizontal — sem secadora</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>detergente para lã ou delicados</strong>, líquido. Evite detergentes comuns e qualquer alvejante.</p>
+          <span class="highlight">Detergente para lã</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#127744;"><strong>Centrifugação baixa (400 rpm)</strong> — mesmo sendo superwash, centrifugação alta deforma o tricô.</li>
+          <li data-icon="&#129520;"><strong>Use saco de lavagem</strong> — protege do atrito com outras roupas na máquina.</li>
+          <li data-icon="&#128090;"><strong>Lave com roupas similares</strong> — não misture com jeans, toalhas ou tecidos pesados.</li>
+          <li data-icon="&#128683;"><strong>Não é à prova de tudo</strong> — evita feltro, mas a peça estica se pendurada molhada.</li>
+          <li data-icon="&#127807;"><strong>Proteja de traças</strong> — o tratamento superwash não protege contra traças.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info-box">
+        <h3>Superwash vs. Merino Tradicional</h3>
+        <p>O tratamento recobre as escamas da fibra, evitando que se encaixem e causem feltro. Permite a máquina a 30°C com segurança. Porém, a peça ainda é lã — centrifugação baixa e secagem horizontal obrigatórias.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="merinoSuperwash-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Merino Superwash</h1>
+      <p>Composição exclusiva — sem equivalente direto no benchmark</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="internal-card">
+        <h4>Dados do Benchmark <span class="badge-diverge">Não disponível</span></h4>
+        <p>Nenhum dos 473 produtos do benchmark é rotulado como "Merino Superwash". Este tratamento é mais comum em fios para tricô manual (brands como Malabrigo, Drops) e na produção própria da Anselmi.</p>
+        <p style="margin-top: 12px;">A recomendação segue as melhores práticas da indústria para lãs superwash, combinando a praticidade da lavagem em máquina com os cuidados gerais de lã merino.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Grande oportunidade de diferenciação: explicar à cliente o que é superwash, por que é mais prático e quais os cuidados mínimos. Nenhuma marca do benchmark oferece esta informação educativa. Comunicar: "pode ir na máquina a 30°C no programa de lã" é uma mensagem poderosa para quem tem medo de lavar lã.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- CASHMERE -->
+<div id="fiber-cashmere" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('cashmere','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('cashmere','interno')">Análise Interna</button>
+  </div>
+
+  <div id="cashmere-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Fibra Preciosa</div>
+      <h1>Cashmere</h1>
+      <p>A mais preciosa das fibras naturais. Extraordinariamente macia, leve e quente</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p><strong>Sempre à mão, água fria (máx. 20°C)</strong>. Imerja delicadamente, 3–5 min de molho, enxague sem torcer. Nunca esfregue.</p>
+          <span class="highlight">Mão — 20°C — 5 min molho</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p><strong>Evite ferro diretamente</strong>. Se necessário, vapor à distância ou 110°C com pano protetor, do avesso.</p>
+          <span class="highlight">Vapor à distância — máx. 110°C</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Seque na horizontal</strong>, sobre toalha seca, longe de sol e calor. Molde para as dimensões originais enquanto úmida.</p>
+          <span class="highlight">Horizontal — moldar forma</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-purple">&#129522;</div>
+          <h3>Detergente</h3>
+          <p>Use <strong>shampoo de cashmere específico</strong> ou shampoo de cabelo suave. Pouquíssima quantidade. Nunca alvejante, nunca amaciante.</p>
+          <span class="highlight">Shampoo de cashmere</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Não esfregue, não torça, não use máquina, não use secadora</strong>. Não deixe de molho por mais de 5 min. Não pendure em cabide.</p>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-gold">&#128141;</div>
+          <h3>Armazenamento</h3>
+          <p><strong>Guarde dobrada, limpa e seca</strong>, em saco de algodão ou papel de seda. Sachê de lavanda ou cedro antitraça. Nunca em plástico.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128168;"><strong>Lave o mínimo possível</strong> — cashmere é autolimpante. Areje por 24h ao invés de lavar.</li>
+          <li data-icon="&#127777;&#65039;"><strong>Mesma temperatura sempre</strong> — troca de temperatura na lavagem/enxague causa feltro irreversível.</li>
+          <li data-icon="&#129521;"><strong>Nunca esprema</strong> — enrole em toalha seca e pressione suavemente para absorver água.</li>
+          <li data-icon="&#129520;"><strong>Pente de cashmere, não tiragelo</strong> — o tiragelo mecânico arranca fibras. O pente remove só bolinhas soltas.</li>
+          <li data-icon="&#127807;"><strong>Proteja de traças</strong> — cashmere é alvo favorito. Use lavanda ou cedro, nunca naftalina.</li>
+          <li data-icon="&#128260;"><strong>Descanse entre usos</strong> — dê pelo menos 48h entre utilizações para a fibra recuperar.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Pilling em Cashmere</div>
+      <div class="section-subtitle">O pilling é natural e esperado, especialmente nas primeiras semanas.</div>
+      <div class="blend-note">
+        <h3>Como Tratar</h3>
+        <p>Bolinhas nas áreas de atrito (axilas, laterais, punhos) são normais. Use pente de cashmere para remover suavemente. Após as primeiras semanas, o pilling diminui e a peça fica cada vez mais macia.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="cashmere-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — Cashmere</h1>
+      <p>Análise de 40 produtos com cashmere em 5 marcas internacionais</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">40</div><div class="stat-label">Produtos analisados</div></div>
+        <div class="stat-box"><div class="stat-number">5</div><div class="stat-label">Marcas</div></div>
+        <div class="stat-box"><div class="stat-number">4</div><div class="stat-label">Divergências críticas</div></div>
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Inconsistências internas</div></div>
+      </div>
+      <div class="section-title">Mapa de Divergências</div>
+      <div class="section-subtitle">Comparação entre 5 marcas para peças contendo cashmere.</div>
+      <div class="legend">
+        <span><span class="legend-dot red"></span> Divergência significativa</span>
+        <span><span class="legend-dot green"></span> Convergência</span>
+      </div>
+      <table class="data-table">
+        <thead><tr><th>Aspecto</th><th>COS</th><th>Arket</th><th>Zara</th><th>M. Dutti</th><th>H&M</th></tr></thead>
+        <tbody>
+          <tr><td class="aspect">Lavagem</td><td class="cell-diverge">Hand wash cold (19%) / Só dry clean (63%) / Não informa (18%)</td><td class="cell-converge">Mão cold + Máq. lã 30°C</td><td class="cell-diverge">Mão 30°C (50%) / Máq. 30°C (50%)</td><td class="cell-converge">Mão 30°C</td><td>Mão 30°C</td></tr>
+          <tr><td class="aspect">Ferro</td><td class="cell-diverge">Low (50%) / Medium (31%) / Do not iron (19%)</td><td class="cell-converge">Medium</td><td class="cell-converge">110°C</td><td class="cell-converge">110°C</td><td>Médio</td></tr>
+          <tr><td class="aspect">Secagem</td><td class="cell-converge">Flat dry (88%)</td><td class="cell-converge">Flat dry (100%)</td><td class="cell-converge">Sem secadora</td><td class="cell-converge">Flat, sem secadora</td><td>Estendal</td></tr>
+          <tr><td class="aspect">Dry clean</td><td class="cell-diverge">Sim (50%) / Dry clean ONLY (44%) / Não (6%)</td><td class="cell-converge">Sim</td><td class="cell-diverge">PROIBIDO</td><td class="cell-converge">Sim (tetracloroetileno)</td><td>Não informado</td></tr>
+          <tr><td class="aspect">Branqueador</td><td>Só não-clorado (75%) / Proibido (25%)</td><td class="cell-converge">Só não-clorado</td><td class="cell-converge">Proibido</td><td class="cell-converge">Proibido</td><td>Só não-clorado</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section">
+      <div class="section-title">Principais Achados</div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS é a mais restritiva:</strong> 63% dos cashmeres COS indicam apenas dry clean, sem opção de lavagem doméstica. 19% são marcados "do not iron". Abordagem ultra-premium.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Zara permite máquina para cashmere:</strong> 50% dos cashmeres Zara indicam lavagem em máquina a 30°C — surpreendente e divergente de todas as outras marcas.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Arket equilibra praticidade e cuidado:</strong> Oferece lavagem à mão + programa lã na máquina como alternativa, com mild detergent. Mais informativa de todas.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>COS internamente inconsistente no ferro:</strong> Produtos 100% cashmere recebem low iron, medium iron OU do not iron — sem critério aparente.</p></div>
+      <div class="finding"><div class="finding-arrow">&rarr;</div><p><strong>Zara proíbe dry clean para cashmere:</strong> Única marca. Massimo Dutti (mesmo grupo) aceita — contradição dentro da Inditex.</p></div>
+    </div>
+    <div class="section">
+      <div class="section-title">Divergências Internas</div>
+      <div class="section-subtitle">Inconsistências encontradas dentro da mesma marca.</div>
+      <div class="internal-card">
+        <h4>COS — Cashmere 100% <span class="badge-diverge">Divergente</span></h4>
+        <p>Peças 100% cashmere recebem instruções radicalmente diferentes: "hand wash cold, do not iron" vs. "dry clean, medium iron" vs. "dry clean only". Sem correlação com tipo de peça (jumper vs. t-shirt vs. dress).</p>
+        <div class="example">
+          <strong>Cashmere T-Shirt:</strong> Hand wash cold, do not iron<br>
+          <strong>Fine-Knit Cashmere Jumper:</strong> Dry clean, medium iron<br>
+          <strong>Chunky Cashmere Jumper:</strong> Dry clean only, low iron
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Posicionar como a marca que melhor educa sobre cashmere. Recomendar lavagem à mão em água fria com shampoo específico (mais seguro que dry clean químico). Incluir informação sobre pilling (nenhuma marca aborda), orientação de armazenamento antitraça, e dica de descanso entre usos. Ferro: vapor à distância como padrão, 110°C com protetor como exceção.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<!-- 100% POLIAMIDA -->
+<div id="fiber-poliamida100" class="fiber-content">
+  <div class="sub-nav">
+    <button class="sub-btn active" onclick="switchSub('poliamida100','guia')">Guia para a Cliente</button>
+    <button class="sub-btn" onclick="switchSub('poliamida100','interno')">Análise Interna</button>
+  </div>
+
+  <div id="poliamida100-guia" class="sub-content active">
+    <div class="hero">
+      <div class="hero-badge">Fibra Sintética</div>
+      <h1>100% Poliamida</h1>
+      <p>Alta resistência, leveza e secagem rápida. Muito sensível ao calor</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="section-title">Cuidados Essenciais</div>
+      <div class="section-subtitle">Siga estas recomendações para preservar a qualidade e a durabilidade das suas peças.</div>
+      <div class="care-grid">
+        <div class="care-card">
+          <div class="care-card-icon icon-creme">&#128167;</div>
+          <h3>Lavagem</h3>
+          <p>Lave na <strong>máquina a 30°C, ciclo delicado</strong>, do avesso. Resistente à lavagem, mas temperaturas altas causam amarelamento.</p>
+          <span class="highlight">30°C — ciclo delicado</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-warm">&#9832;</div>
+          <h3>Ferro</h3>
+          <p>Passe em <strong>temperatura baixa (110°C)</strong>, do avesso. A poliamida derrete com calor excessivo. Prefira vapor à distância.</p>
+          <span class="highlight">110°C máx.</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-green">&#127811;</div>
+          <h3>Secagem</h3>
+          <p><strong>Horizontal ou varal à sombra</strong>. Seca rapidamente. Nunca secadora — o calor deforma permanentemente.</p>
+          <span class="highlight">Seca rápido — sem secadora</span>
+        </div>
+        <div class="care-card">
+          <div class="care-card-icon icon-red">&#10060;</div>
+          <h3>O Que Evitar</h3>
+          <p><strong>Não use alvejante</strong> (amarelamento permanente). Não use secadora. Evite sol direto prolongado — a poliamida degrada com UV.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Dicas Extras</div>
+      <div class="section-subtitle">Pequenos cuidados que fazem grande diferença na durabilidade.</div>
+      <div class="care-card" style="padding: 0; overflow: hidden;">
+        <ul class="tips-list">
+          <li data-icon="&#128090;"><strong>Lave do avesso</strong> — protege a superfície visível de engates em zíperes de outras roupas.</li>
+          <li data-icon="&#9728;&#65039;"><strong>Evite sol direto prolongado</strong> — radiação UV degrada a poliamida. Seque à sombra.</li>
+          <li data-icon="&#127800;"><strong>Cuidado com perfumes</strong> — o álcool pode manchar. Aplique antes de vestir e deixe secar.</li>
+          <li data-icon="&#10024;"><strong>Não passe se puder evitar</strong> — amassa pouco. Basta esticar a peça úmida para secar sem vincos.</li>
+          <li data-icon="&#9889;"><strong>Eletricidade estática</strong> — pode acumular estática. Um borrifo leve de água resolve.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="info-box">
+        <h3>Vantagens da poliamida em tricô</h3>
+        <p>Durabilidade excepcional, resistência à abrasão superior às fibras naturais. Mantém a forma, não encolhe e é extremamente leve. Secagem rápida é um bônus prático para o dia a dia.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div id="poliamida100-interno" class="sub-content">
+    <div class="hero internal">
+      <div class="hero-badge">Benchmark Interno</div>
+      <h1>Divergências — 100% Poliamida</h1>
+      <p>Dados limitados no benchmark — 2 produtos da Zara</p>
+    </div>
+    <div class="container">
+    <div class="section">
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-number">2</div><div class="stat-label">Produtos no benchmark</div></div>
+        <div class="stat-box"><div class="stat-number">1</div><div class="stat-label">Marca</div></div>
+      </div>
+      <div class="internal-card">
+        <h4>Dados do Benchmark <span class="badge-diverge">Limitado</span></h4>
+        <p>Apenas 2 produtos com componente 100% poliamida encontrados no benchmark, ambos da Zara e com poliamida como parte de um conjunto (renda ou forro), não como fibra principal.</p>
+        <p style="margin-top: 12px;">Ambos seguem o padrão Zara: máquina 30°C, centrifugação curta, ferro 110°C, sem dry clean, sem alvejante.</p>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-title">Recomendação para a Anselmi</div>
+      <div class="info-box">
+        <h3>Posicionamento Sugerido</h3>
+        <p>Com poucos dados no benchmark, seguir as melhores práticas da indústria: máquina 30°C, ferro 110°C máx., secagem à sombra. Destacar as vantagens (leveza, durabilidade, secagem rápida) e alertar sobre sensibilidade ao calor e UV. Diferenciar comunicando que não precisa passar — informação prática que nenhuma marca destaca.</p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <img src="data:image/png;base64,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" alt="ANSELMI"><br>
+  <strong>Anselmi</strong> — Guia de Cuidados por Fibra<br>
+  Baseado na análise de 473 produtos de 5 marcas internacionais — Março 2026
+</div>
+
+<script>
+function switchFiber(id) {
+  document.querySelectorAll('.fiber-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.fiber-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('fiber-' + id).classList.add('active');
+  document.querySelectorAll('.fiber-btn').forEach(btn => {
+    if (btn.getAttribute('onclick').includes(id)) btn.classList.add('active');
+  });
+  // Reset sub-tabs to "Guia"
+  var fiber = document.getElementById('fiber-' + id);
+  fiber.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+  fiber.querySelectorAll('.sub-btn').forEach(el => el.classList.remove('active'));
+  fiber.querySelector('.sub-content').classList.add('active');
+  fiber.querySelector('.sub-btn').classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function switchSub(fiberId, tab) {
+  var fiber = document.getElementById('fiber-' + fiberId);
+  fiber.querySelectorAll('.sub-content').forEach(el => el.classList.remove('active'));
+  fiber.querySelectorAll('.sub-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(fiberId + '-' + tab).classList.add('active');
+  fiber.querySelectorAll('.sub-btn').forEach(btn => {
+    if (btn.getAttribute('onclick').includes(tab)) btn.classList.add('active');
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+                                                                </html><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guia de Cuidados — Peças com Algodão | Anselmi</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
