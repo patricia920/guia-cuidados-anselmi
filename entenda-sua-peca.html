@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entenda sua peça | Guia de Cuidados Anselmi</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--creme:#F7F1E5;--preto:#000;--texto:#1A1A1A;--secundario:#555;--claro:#888;--borda:#E0D9CC;--card:#fff;--suave:#EDE7DC}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--creme);color:var(--texto);line-height:1.7;-webkit-font-smoothing:antialiased}
+header{background:var(--preto);color:#fff;text-align:center;padding:22px 24px;position:sticky;top:0;z-index:20}
+header strong{font-family:'Cormorant Garamond',serif;font-size:1.25rem;letter-spacing:.08em}
+.hero{background:linear-gradient(135deg,#1A1A1A 0%,#000 100%);color:#fff;text-align:center;padding:76px 24px 60px}
+.badge{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--creme);border:1px solid var(--creme);padding:4px 16px;border-radius:20px;margin-bottom:22px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:2.8rem;line-height:1.1;margin-bottom:14px}
+.hero p{max-width:620px;margin:auto;color:rgba(255,255,255,.7);font-weight:300}
+.tabs{display:flex;justify-content:center;background:rgba(0,0,0,.05);border-bottom:1px solid rgba(0,0,0,.12);position:sticky;top:71px;z-index:15}
+.tab{border:0;background:none;padding:15px 24px;font:500 .82rem 'Inter';cursor:pointer;position:relative;color:#555}
+.tab.active{font-weight:600;color:#000}.tab.active:after{content:'';position:absolute;bottom:0;left:15%;right:15%;height:2px;background:#000}
+.panel{display:none}.panel.active{display:block}
+.container{max-width:960px;margin:auto;padding:0 24px}.section{padding:56px 0}.section+.section{border-top:1px solid rgba(0,0,0,.1)}
+h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;margin-bottom:8px}.subtitle{font-size:.9rem;color:var(--secundario);margin-bottom:30px;max-width:680px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{background:var(--card);border:1px solid var(--borda);border-radius:12px;padding:24px}.card h3{font-size:.98rem;margin-bottom:8px}.card p{font-size:.86rem;color:var(--secundario)}
+.label{display:inline-block;background:var(--suave);font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
+.note{background:#fff;border-left:4px solid #000;border-radius:12px;padding:24px 28px;margin-top:18px}.note h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;margin-bottom:8px}.note p{font-size:.88rem;color:var(--secundario)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}.filter{border:1px solid var(--borda);background:#fff;border-radius:20px;padding:7px 13px;font:500 .75rem 'Inter';cursor:pointer}.filter.active{background:#000;color:#fff;border-color:#000}
+.faq{background:#fff;border:1px solid var(--borda);border-radius:12px;overflow:hidden}.faq details{border-bottom:1px solid var(--borda)}.faq details:last-child{border-bottom:0}.faq summary{list-style:none;cursor:pointer;padding:18px 52px 18px 20px;font-size:.88rem;font-weight:600;position:relative}.faq summary::-webkit-details-marker{display:none}.faq summary:after{content:'+';position:absolute;right:20px;top:15px;font-size:1.3rem;font-weight:300}.faq details[open] summary:after{content:'−'}.answer{padding:0 20px 19px;font-size:.85rem;color:var(--secundario)}
+.footer{text-align:center;padding:38px 24px;color:var(--claro);font-size:.75rem;border-top:1px solid rgba(0,0,0,.1)}
+@media(max-width:680px){.hero{padding:50px 20px 42px}.hero h1{font-size:2rem}.grid{grid-template-columns:1fr}.container{padding:0 16px}.section{padding:38px 0}.tabs{top:70px;overflow-x:auto;justify-content:flex-start}.tab{white-space:nowrap}}
+</style>
+</head>
+<body>
+<header><strong>ANSELMI</strong></header>
+<section class="hero"><div class="badge">Guia de Cuidados</div><h1>Entenda sua peça</h1><p>Conheça os comportamentos naturais das fibras e encontre respostas práticas para preservar seus tricôs por mais tempo.</p></section>
+<nav class="tabs"><button class="tab active" data-tab="fenomenos">Comportamentos naturais</button><button class="tab" data-tab="faq">Perguntas frequentes</button></nav>
+<main>
+<section id="fenomenos" class="panel active"><div class="container">
+<div class="section"><h2>O comportamento natural das fibras</h2><p class="subtitle">Alterações sutis podem surgir com o uso e fazem parte da natureza dos fios. Entender cada fenômeno ajuda a cuidar melhor da peça.</p>
+<div class="grid">
+<article class="card"><span class="label">Todas as fibras</span><h3>Pilling — pequenas bolinhas</h3><p>O atrito solta fibras da superfície, que se entrelaçam e formam bolinhas, sobretudo nas laterais, mangas e regiões de contato com bolsas. Não significa, por si só, defeito. Remova delicadamente com tira-bolinhas ou pente próprio para malhas.</p></article>
+<article class="card"><span class="label">Malhas em geral</span><h3>Relaxamento da malha</h3><p>Durante o uso, o tricô pode parecer mais alongado. As fibras relaxam naturalmente e costumam recuperar boa parte da forma após a lavagem e a secagem corretas.</p></article>
+<article class="card"><span class="label">Fibras elásticas</span><h3>Memória da fibra</h3><p>É a capacidade de retornar ao formato original. Secar a peça na posição correta, sem pendurar, permite que essa recuperação aconteça com menor risco de deformação.</p></article>
+<article class="card"><span class="label">Algodão e fibras naturais</span><h3>Ajuste dimensional</h3><p>Pequenos ajustes de medida podem ocorrer nas primeiras lavagens. Água quente, secadora e atrito intenso aumentam o risco de encolhimento além do esperado.</p></article>
+<article class="card"><span class="label">Lã, merino e cashmere</span><h3>Feltragem</h3><p>Calor, umidade e atrito podem entrelaçar as fibras de maneira permanente, deixando a peça menor, rígida ou compactada. Use água fria ou morna, ciclo delicado e nunca esfregue ou utilize secadora.</p></article>
+<article class="card"><span class="label">Fibras naturais</span><h3>Vincos e marcas de dobra</h3><p>Algumas fibras marcam quando permanecem comprimidas por longos períodos. Vapor suave ou passadoria compatível com a composição normalmente ajudam a recuperar a aparência.</p></article>
+</div>
+<div class="note"><h3>Cada fibra possui uma natureza própria</h3><p>Algodão, lã, cashmere, elastano e poliamida não se comportam da mesma forma. Siga sempre as orientações específicas da composição indicada na etiqueta da sua peça.</p></div>
+</div></div></section>
+<section id="faq" class="panel"><div class="container"><div class="section"><h2>Perguntas frequentes</h2><p class="subtitle">Selecione um tema e consulte as dúvidas mais comuns sobre lavagem, secagem, passadoria, armazenamento e durabilidade.</p>
+<div class="filters"><button class="filter active" data-filter="all">Todas</button><button class="filter" data-filter="lavagem">Lavagem</button><button class="filter" data-filter="secagem">Secagem</button><button class="filter" data-filter="passadoria">Passadoria</button><button class="filter" data-filter="armazenamento">Armazenamento</button><button class="filter" data-filter="durabilidade">Durabilidade</button></div>
+<div class="faq">
+<details data-category="lavagem"><summary>Posso lavar minha peça na máquina?</summary><div class="answer">Depende da composição e da construção do tricô. Siga a orientação específica da fibra e use ciclo delicado. Para pontos muito abertos ou peças especialmente delicadas, prefira a lavagem à mão.</div></details>
+<details data-category="lavagem"><summary>Posso deixar a peça de molho?</summary><div class="answer">Não é recomendado. A imersão prolongada pode favorecer perda de cor, deformação e enfraquecimento de algumas fibras.</div></details>
+<details data-category="lavagem"><summary>Posso usar água quente?</summary><div class="answer">Evite. Temperaturas elevadas aumentam o risco de encolhimento, feltragem, deformação e desgaste precoce.</div></details>
+<details data-category="lavagem"><summary>Posso usar amaciante?</summary><div class="answer">Use apenas quando compatível com a etiqueta e em pequena quantidade. O excesso pode deixar resíduos, alterar o toque e reduzir a respirabilidade.</div></details>
+<details data-category="lavagem"><summary>Posso usar alvejante?</summary><div class="answer">Não utilize produtos com cloro. Quando a etiqueta permitir, prefira apenas alvejante à base de oxigênio e faça um teste discreto.</div></details>
+<details data-category="lavagem"><summary>Posso centrifugar?</summary><div class="answer">Quando permitido, escolha rotação baixa ou centrifugação curta. O excesso de força pode deformar a malha.</div></details>
+<details data-category="lavagem"><summary>Posso lavar junto com jeans ou toalhas?</summary><div class="answer">O ideal é não. Peças pesadas e superfícies ásperas aumentam o atrito, favorecendo pilling, engates e deformações.</div></details>
+<details data-category="lavagem"><summary>Posso misturar peças claras e escuras?</summary><div class="answer">Não é recomendado, principalmente nas primeiras lavagens. Separe por cor para evitar transferência de pigmento.</div></details>
+<details data-category="secagem"><summary>Posso usar secadora?</summary><div class="answer">Na maioria dos tricôs, não. O calor pode encolher, feltrar ou deformar permanentemente a peça.</div></details>
+<details data-category="secagem"><summary>Posso secar diretamente ao sol?</summary><div class="answer">Prefira sempre a sombra. O sol direto pode desbotar cores escuras, amarelar peças claras e fragilizar algumas fibras.</div></details>
+<details data-category="secagem"><summary>Por que devo secar na horizontal?</summary><div class="answer">A água aumenta o peso do tricô. Quando pendurada, a peça pode alongar e deformar ombros, barras e mangas.</div></details>
+<details data-category="passadoria"><summary>Posso utilizar vapor?</summary><div class="answer">Sim, desde que a temperatura seja adequada à fibra. Evite pressionar e concentrar calor em um único ponto.</div></details>
+<details data-category="passadoria"><summary>Posso usar steamer?</summary><div class="answer">Na maioria dos casos, sim. Mantenha distância da peça e faça movimentos contínuos, sem saturar a malha com umidade.</div></details>
+<details data-category="passadoria"><summary>Posso passar diretamente sobre o tricô?</summary><div class="answer">Prefira passar do avesso ou utilizar um pano fino de proteção. Isso reduz brilho, marcas e danos por calor.</div></details>
+<details data-category="armazenamento"><summary>Posso guardar em cabide?</summary><div class="answer">Para tricôs, prefira guardar dobrado. O cabide concentra peso nos ombros e pode deformar a peça.</div></details>
+<details data-category="armazenamento"><summary>Posso guardar a vácuo?</summary><div class="answer">Não é ideal por longos períodos, principalmente para lã e cashmere. A compressão pode alterar o volume e criar vincos persistentes.</div></details>
+<details data-category="armazenamento"><summary>Preciso lavar antes de guardar?</summary><div class="answer">Sim, antes de um período prolongado. Resíduos de suor, perfume e alimentos podem oxidar, manchar ou atrair traças.</div></details>
+<details data-category="durabilidade"><summary>Minha peça criou bolinhas. É defeito?</summary><div class="answer">O pilling pode ser um comportamento natural causado pelo atrito. Avalie a intensidade e remova com ferramenta própria, sempre com delicadeza.</div></details>
+<details data-category="durabilidade"><summary>A peça cedeu um pouco durante o uso. É normal?</summary><div class="answer">Sim. Muitas malhas relaxam com o movimento e recuperam parte da forma após uma lavagem correta e secagem horizontal.</div></details>
+<details data-category="durabilidade"><summary>Como aumentar a vida útil?</summary><div class="answer">Lave apenas quando necessário, use detergente suave, reduza atrito, seque na horizontal, guarde dobrada e respeite a temperatura indicada.</div></details>
+<details data-category="durabilidade"><summary>Por que a peça pode desbotar?</summary><div class="answer">Sol direto, temperatura elevada, produtos inadequados, atrito e mistura de cores podem acelerar a perda de pigmento.</div></details>
+<details data-category="durabilidade"><summary>Quanto tempo um tricô pode durar?</summary><div class="answer">Não existe um prazo único. Com uso consciente, manutenção correta e armazenamento adequado, uma peça de qualidade pode conservar suas características por muitos anos.</div></details>
+</div></div></div></section>
+</main>
+<footer class="footer"><strong>Anselmi — Guia de Cuidados por Fibra</strong><br>Conteúdo educativo. Consulte sempre a etiqueta interna da peça.</footer>
+<script>
+document.querySelectorAll('.tab').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('.tab').forEach(function(item){item.classList.remove('active')});document.querySelectorAll('.panel').forEach(function(item){item.classList.remove('active')});button.classList.add('active');document.getElementById(button.dataset.tab).classList.add('active');window.scrollTo({top:0,behavior:'smooth'})})});
+document.querySelectorAll('.filter').forEach(function(button){button.addEventListener('click',function(){document.querySelectorAll('.filter').forEach(function(item){item.classList.remove('active')});button.classList.add('active');var selected=button.dataset.filter;document.querySelectorAll('.faq details').forEach(function(item){item.style.display=selected==='all'||item.dataset.category===selected?'block':'none'})})});
+</script>
+</body>
+</html>
